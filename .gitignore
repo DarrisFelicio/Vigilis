@@ -1,0 +1,18 @@
+# Root gitignore to protect local uploads and test files
+uploads/
+*.jpg
+*.jpeg
+*.png
+*.txt
+!README.txt
+!requirements_ml_service.txt
+
+# Nested application files (handled by faceattend/.gitignore too)
+faceattend/server/backend-api/test_results.txt
+faceattend/server/backend-api/uploads/
+.env
+.env.*
+node_modules/
+.venv/
+venv/
+__pycache__/
