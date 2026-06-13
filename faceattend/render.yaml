@@ -1,4 +1,10 @@
 services:
+  # Redis Service
+  - type: redis
+    name: smart-attendance-redis
+    plan: free
+    ipAllowList: [] # Allow only internal services to connect
+
   # Backend API Service
   - type: web
     name: smart-attendance-backend
@@ -12,6 +18,21 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11
+      - key: ENVIRONMENT
+        value: production
+      - key: MONGO_URI
+        sync: false # User will input their MongoDB Atlas URI in the UI
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: smart-attendance-redis
+          property: connectionString
+      - key: ML_SERVICE_URL
+        value: http://smart-attendance-ml:10000 # Internal Render networking URL
+      - key: JWT_SECRET
+        generateValue: true # Render will generate a secure random string
+      - key: SESSION_SECRET_KEY
+        generateValue: true # Render will generate a secure random string
 
   # ML Service
   - type: web
@@ -26,3 +47,4 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11
+
