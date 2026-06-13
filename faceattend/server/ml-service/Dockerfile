@@ -14,7 +14,11 @@ COPY requirements.txt .
 # ✅ Install precompiled dlib binary first to satisfy the dependency of face_recognition without compiling from source
 RUN pip install --no-cache-dir dlib-bin
 
+# ✅ Install face_recognition with --no-deps to prevent it from pulling and compiling standard dlib
+RUN pip install --no-cache-dir face_recognition --no-deps
+
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 
 COPY . .

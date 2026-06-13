@@ -8,9 +8,7 @@
 # 2. pip install -r requirements.txt
 # ============================================================
 
-# ── Dari ageitgey/face_recognition ──────────────────────────
-face_recognition>=1.3.0
-dlib>=19.22.0
+# ── Dari ageitgey/face_recognition (installed manually in Dockerfile with --no-deps)
 
 # ── Dari minivision-ai/Silent-Face-Anti-Spoofing ────────────
 torch>=1.7.0
