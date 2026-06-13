@@ -1,21 +1,21 @@
 FROM python:3.10-slim
 
-# ✅ Required system dependencies for building dlib, OpenCV & MediaPipe
+# ✅ Required runtime libs for OpenCV & MediaPipe
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    cmake \
-    g++ \
     libgl1 \
     libglib2.0-0 \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-
 WORKDIR /app
 
 COPY requirements.txt .
 
+# ✅ Install precompiled dlib binary first to satisfy the dependency of face_recognition without compiling from source
+RUN pip install --no-cache-dir dlib-bin
+
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 COPY . .
 
