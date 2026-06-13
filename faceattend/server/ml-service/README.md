@@ -1,4 +1,15 @@
+---
+title: Vigilis ML Service
+emoji: 👁️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # ML Service - Smart Attendance System
+
 
 Machine Learning microservice for face recognition operations in the Smart Attendance System.
 

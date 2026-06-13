@@ -1,4 +1,15 @@
+---
+title: Vigilis Backend API
+emoji: 🚀
+colorFrom: green
+colorTo: blue
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Backend API - Smart Attendance System
+
 
 Main backend API service for the Smart Attendance System. Handles all business logic, authentication, database operations, and orchestrates ML service calls.
 
